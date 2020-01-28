@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-raqmiyat-camerapreview" version="1.0.0" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>CameraPreview</name>
+    <js-module name="CameraPreview" src="www/camerapreview.js">
+        <clobbers target="CameraPreview" />
+    </js-module>
+    <platform name="android">
+        <preference name="ANDROID_SUPPORT_V4_VERSION" default="28.+"/>
+        <framework src="com.android.support:support-v4:$ANDROID_SUPPORT_V4_VERSION"/>
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="CameraPreview">
+                <param name="android-package" value="cordova.plugin.raqmiyat.camerapreview.CameraPreview" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:label="CameraActivity" android:name="cordova.plugin.raqmiyat.camerapreview.CameraActivity"></activity>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+        <source-file src="res/drawable/myshape.xml" target-dir="res/drawable" />
+        <source-file src="res/drawable/cancel.png" target-dir="res/drawable" />
+        <source-file src="res/drawable/tick.png" target-dir="res/drawable" />
+        <source-file src="res/layout/activity_camera.xml" target-dir="res/layout" />
+        <source-file src="src/android/CameraPreview.java" target-dir="src/cordova/plugin/raqmiyat/camerapreview" />
+        <source-file src="src/android/CameraActivity.java" target-dir="src/cordova/plugin/raqmiyat/camerapreview" />
+    </platform>
+</plugin>

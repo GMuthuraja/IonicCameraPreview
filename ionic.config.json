@@ -1,5 +1,7 @@
 {
   "name": "IonicCameraPreview",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
